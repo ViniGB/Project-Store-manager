@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.get('/products', Products.productList);
 app.get('/products/:id', Products.productById);
 app.post('/products', Products.addProduct);
+app.put('/products/:id', Products.editProduct);
 
 app.get('/sales', Sales.salesList);
 app.get('/sales/:id', Sales.saleById);

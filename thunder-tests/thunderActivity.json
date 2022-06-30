@@ -106,5 +106,43 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "57a2a9d3-a126-4cd7-8750-cefe1ec9bb60",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/1",
+    "url": "localhost:3000/products/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-06-30T22:53:54.859Z",
+    "modified": "2022-06-30T22:59:35.673Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Mart\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "56187574-c5a3-45b8-815d-a5e8b3ee222e",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/5",
+    "url": "localhost:3000/products/5",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-06-30T22:59:45.384Z",
+    "modified": "2022-06-30T22:59:45.465Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Mart\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

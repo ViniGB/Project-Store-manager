@@ -27,7 +27,7 @@ const productsService = {
     if (!product) {
       return {
         error: {
-          code: 'notFound',
+          code: 404,
           message: 'Product not found',
         },
       };
@@ -52,6 +52,26 @@ const productsService = {
     const product = await productsModel.addProduct(data);
 
     return product;
+  },
+
+  async editProduct(id, dataToUpdate) {
+    const product = await productsModel.productById(id);
+    if (!product) return { error: { code: 404, message: 'Product not found' } };
+    const checkIfName = validateName(dataToUpdate);
+    if (!checkIfName) {
+      return {
+        error: { code: 400, message: '"name" is required' },
+      };
+    }
+    const checkIfNameIsValid = validateNameLength(dataToUpdate);
+    if (!checkIfNameIsValid) {
+      return {
+        error: { code: 422, message: '"name" length must be at least 5 characters long' },
+      };
+    }
+    
+    await productsModel.editProduct(id, dataToUpdate);
+    return { error: false };
   },
 };
 

@@ -30,6 +30,14 @@ const productsModel = {
     const product = await connection.query(sql, [data.name]);
     return product;
   },
+
+  async editProduct(id, dataToUpdate) {
+    const sql = `
+      UPDATE StoreManager.products SET ?
+      WHERE ID = ?
+    `;
+    await connection.query(sql, [dataToUpdate, id]);
+  },
 };
 
 module.exports = productsModel;

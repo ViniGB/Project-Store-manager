@@ -26,6 +26,18 @@ const productsController = {
 
     res.status(201).json(productById);
   },
+
+  async editProduct(req, res) {
+    const { id } = req.params;
+    const dataToUpdate = req.body;
+    const editedProduct = await productsService.editProduct(id, dataToUpdate);
+
+    if (editedProduct.error) {
+      return res.status(editedProduct.error.code).json({ message: editedProduct.error.message });
+    }
+
+    res.status(200).json({ id, name: dataToUpdate.name });
+  },
 };
 
 module.exports = productsController;
