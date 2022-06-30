@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-06-29T21:39:49.463Z",
-    "modified": "2022-06-29T21:47:48.176Z",
+    "modified": "2022-06-30T17:10:10.203Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -42,6 +42,25 @@
     "body": {
       "type": "json",
       "raw": "{\n    \"name\": \"Asdda\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "bb5c9d98-9f02-461c-a2b4-9e94a52bfdf7",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales",
+    "url": "localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-30T18:11:01.767Z",
+    "modified": "2022-06-30T21:02:07.540Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    },\n    {\n      \"productId\": 2,\n      \"quantity\":5\n    }\n]",
       "form": []
     },
     "tests": []
