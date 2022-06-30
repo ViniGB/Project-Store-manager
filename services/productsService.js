@@ -27,7 +27,7 @@ const productsService = {
     if (!product) {
       return {
         error: {
-          code: 404,
+          code: 'notFound',
           message: 'Product not found',
         },
       };
