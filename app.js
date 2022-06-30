@@ -11,6 +11,8 @@ app.get('/products', Products.productList);
 app.get('/products/:id', Products.productById);
 app.post('/products', Products.addProduct);
 
+app.get('/sales', Sales.salesList);
+app.get('/sales/:id', Sales.saleById);
 app.post('/sales', Sales.addSale);
 
 // não remova esse endpoint, é para o avaliador funcionar

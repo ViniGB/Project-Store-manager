@@ -17,6 +17,39 @@ const salesModel = {
     `;
     await connection.query(sql, [salesId, productId, quantity]);
   },
+
+  async salesList() {
+    const sql = `
+      SELECT sale_id AS saleId,
+        product_id AS productId,
+        quantity,
+        date
+      FROM StoreManager.sales_products AS salesProducts
+      JOIN StoreManager.sales AS sales
+      ON salesProducts.sale_id = sales.id
+      ORDER BY saleId ASC, productId ASC;
+    `;
+    const [list] = await connection.query(sql);
+    return list;
+  },
+
+  async saleById(id) {
+    const sql = `
+      SELECT sale_id AS saleId,
+        product_id AS productId,
+        quantity,
+        date
+      FROM StoreManager.sales_products AS salesProducts
+      JOIN StoreManager.sales AS sales
+      ON salesProducts.sale_id = sales.id
+      WHERE id = ?
+      ORDER BY saleId ASC, productId ASC;
+    `;
+    const [list] = await connection.query(sql, [id]);
+
+    if (list.length === 0) return null;
+    return list;
+  },
 };
 
 module.exports = salesModel;

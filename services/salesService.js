@@ -61,6 +61,35 @@ const salesService = {
       .addSalesProducts(id, product.productId, product.quantity)));
     return { error: false, id };
   },
+
+  async salesList() {
+    const sales = await salesModel.salesList();
+    return sales;
+  },
+
+  async saleById(id) {
+    const sale = await salesModel.saleById(id);
+
+    if (!sale) {
+      return {
+        error: {
+          code: 404,
+          message: 'Sale not found',
+        },
+      };
+    }
+
+    const wantedSaleObject = sale.map((currSale) => {
+      const obj = {
+        date: currSale.date,
+        productId: currSale.productId,
+        quantity: currSale.quantity,
+      };
+      return obj;
+    });
+
+    return wantedSaleObject;
+  },
 };
 
 module.exports = salesService;

@@ -64,5 +64,47 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "cf583cf2-861b-4b54-8401-61838212cd55",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales",
+    "url": "localhost:3000/sales",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-06-30T21:57:45.829Z",
+    "modified": "2022-06-30T21:58:24.400Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "2f8aef37-d064-4905-b68b-cd05af722f29",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/1",
+    "url": "localhost:3000/sales/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-06-30T22:11:05.167Z",
+    "modified": "2022-06-30T22:16:29.642Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "fa5071cd-dd79-46d6-ae94-162632c2ddc9",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/4",
+    "url": "localhost:3000/sales/4",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-06-30T22:16:52.424Z",
+    "modified": "2022-06-30T22:17:58.193Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
