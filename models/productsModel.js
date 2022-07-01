@@ -34,7 +34,7 @@ const productsModel = {
   async editProduct(id, dataToUpdate) {
     const sql = `
       UPDATE StoreManager.products SET ?
-      WHERE id = ?
+      WHERE ID = ?
     `;
     await connection.query(sql, [dataToUpdate, id]);
   },
