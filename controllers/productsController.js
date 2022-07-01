@@ -38,6 +38,15 @@ const productsController = {
 
     res.status(200).json({ id, name: dataToUpdate.name });
   },
+
+  async removeProduct(req, res) {
+    const { id } = req.params;
+    const product = await productsService.productById(id);
+    if (product.error) return res.status(404).json({ message: product.error.message });
+
+    await productsService.removeProduct(id);
+    res.send(204);
+  },
 };
 
 module.exports = productsController;

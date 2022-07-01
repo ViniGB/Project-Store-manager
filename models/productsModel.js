@@ -34,9 +34,17 @@ const productsModel = {
   async editProduct(id, dataToUpdate) {
     const sql = `
       UPDATE StoreManager.products SET ?
-      WHERE ID = ?
+      WHERE id = ?
     `;
     await connection.query(sql, [dataToUpdate, id]);
+  },
+
+  async removeProduct(id) {
+    const sql = `
+      DELETE FROM StoreManager.products
+      WHERE id = ?
+    `;
+    await connection.query(sql, [id]);
   },
 };
 
