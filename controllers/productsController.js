@@ -46,6 +46,14 @@ const productsController = {
     await productsService.removeProduct(id);
     res.status(204).json();
   },
+
+  async productByName(req, res) {
+    const { q } = req.query;
+
+    const product = await productsService.productByName(q);
+
+    res.status(200).json(product);
+  },
 };
 
 module.exports = productsController;

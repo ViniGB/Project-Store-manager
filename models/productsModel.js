@@ -47,6 +47,15 @@ const productsModel = {
     `;
     await connection.query(sql, [id]);
   },
+
+  async productByName(data) {
+    const sql = `
+      SELECT * FROM StoreManager.products
+      WHERE name LIKE ?
+    `;
+    const [list] = await connection.query(sql, [data]);
+    return list;
+  },
 };
 
 module.exports = productsModel;

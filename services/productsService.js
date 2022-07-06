@@ -77,6 +77,17 @@ const productsService = {
   async removeProduct(id) {
     await productsModel.removeProduct(id);
   },
+
+  async productByName(data) {
+    if (data === '') {
+      const product = await productsModel.productList();
+      return product;
+    }
+    const dataQuery = `%${data}%`;
+    const product = await productsModel.productByName(dataQuery);
+
+    return product;
+  },
 };
 
 module.exports = productsService;

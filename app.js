@@ -7,8 +7,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.get('/products', Products.productList);
+app.get('/products/search', Products.productByName);
 app.get('/products/:id', Products.productById);
+app.get('/products', Products.productList);
 app.put('/products/:id', Products.editProduct);
 app.delete('/products/:id', Products.removeProduct);
 app.post('/products', Products.addProduct);
