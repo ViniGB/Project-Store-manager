@@ -90,6 +90,26 @@ const salesService = {
 
     return wantedSaleObject;
   },
+
+  async removeSale(id) {
+    await salesModel.removeSale(id);
+  },
+
+  async removeSaleProducts(id) {
+    const sale = await await salesModel.saleById(id);
+    if (!sale) {
+      return {
+        error: {
+          code: 404,
+          message: 'Sale not found',
+        },
+      };
+    }
+
+    await salesModel.removeSale(id);
+    await salesModel.removeSaleProducts(id);
+    return true;
+  },
 };
 
 module.exports = salesService;

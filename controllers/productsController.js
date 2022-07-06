@@ -22,9 +22,7 @@ const productsController = {
     if (productId.error) {
       return res.status(productId.error.code).json({ message: productId.error.message });
     }
-    // const productById = await productsService.productById(product[0].insertId);
-
-    // const [{ insertId }] = product;
+  
     res.status(201).json({ id: productId, name: data.name });
   },
 

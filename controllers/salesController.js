@@ -26,6 +26,15 @@ const salesController = {
 
     res.status(200).json(sale);
   },
+
+  async removeSale(req, res) {
+    const { id } = req.params;
+    const sale = await salesService.removeSaleProducts(id);
+
+    if (sale.error) return res.status(sale.error.code).json({ message: sale.error.message });
+
+    res.status(204).json();
+  },
 };
 
 module.exports = salesController;

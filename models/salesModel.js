@@ -50,6 +50,22 @@ const salesModel = {
     if (list.length === 0) return null;
     return list;
   },
+
+  async removeSale(id) {
+    const sql = `
+      DELETE FROM StoreManager.sales
+      WHERE id = ?
+    `;
+    await connection.query(sql, [id]);
+  },
+
+  async removeSaleProducts(id) {
+    const sql = `
+      DELETE FROM StoreManager.sales_products
+      WHERE sale_id = ?
+    `;
+    await connection.query(sql, [id]);
+  },
 };
 
 module.exports = salesModel;
