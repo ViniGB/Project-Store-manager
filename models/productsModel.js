@@ -27,8 +27,8 @@ const productsModel = {
       INSERT INTO StoreManager.products (name)
       VALUES (?)
     `;
-    const product = await connection.query(sql, [data.name]);
-    return product;
+    const [{ insertId }] = await connection.query(sql, [data.name]);
+    return insertId;
   },
 
   async editProduct(id, dataToUpdate) {
@@ -37,6 +37,7 @@ const productsModel = {
       WHERE ID = ?
     `;
     await connection.query(sql, [dataToUpdate, id]);
+    return true;
   },
 
   async removeProduct(id) {

@@ -18,13 +18,14 @@ const productsController = {
 
   async addProduct(req, res) {
     const data = req.body;
-    const product = await productsService.addProduct(data);
-    if (product.error) {
-      return res.status(product.error.code).json({ message: product.error.message });
+    const productId = await productsService.addProduct(data);
+    if (productId.error) {
+      return res.status(productId.error.code).json({ message: productId.error.message });
     }
-    const productById = await productsService.productById(product[0].insertId);
+    // const productById = await productsService.productById(product[0].insertId);
 
-    res.status(201).json(productById);
+    // const [{ insertId }] = product;
+    res.status(201).json({ id: productId, name: data.name });
   },
 
   async editProduct(req, res) {
@@ -36,7 +37,7 @@ const productsController = {
       return res.status(editedProduct.error.code).json({ message: editedProduct.error.message });
     }
 
-    res.status(200).json({ id, name: dataToUpdate.name });
+    res.status(200).json({ id: Number(id), name: dataToUpdate.name });
   },
 
   async removeProduct(req, res) {
@@ -45,7 +46,7 @@ const productsController = {
     if (product.error) return res.status(404).json({ message: product.error.message });
 
     await productsService.removeProduct(id);
-    res.send(204);
+    res.status(204).json();
   },
 };
 

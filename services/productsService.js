@@ -49,9 +49,9 @@ const productsService = {
         error: { code: 422, message: '"name" length must be at least 5 characters long' },
       };
     }
-    const product = await productsModel.addProduct(data);
+    const productId = await productsModel.addProduct(data);
 
-    return product;
+    return productId;
   },
 
   async editProduct(id, dataToUpdate) {
@@ -71,7 +71,7 @@ const productsService = {
     }
     
     await productsModel.editProduct(id, dataToUpdate);
-    return { error: false };
+    return true;
   },
 
   async removeProduct(id) {

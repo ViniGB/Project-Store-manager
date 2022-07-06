@@ -36,12 +36,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-06-30T04:09:34.915Z",
-    "modified": "2022-06-30T05:49:11.688Z",
+    "modified": "2022-07-06T02:59:23.327Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"name\": \"Asdda\"\n}",
+      "raw": "{\n    \"name\": \"ProdutoX\"\n}",
       "form": []
     },
     "tests": []
@@ -116,12 +116,12 @@
     "method": "PUT",
     "sortNum": 0,
     "created": "2022-06-30T22:53:54.859Z",
-    "modified": "2022-06-30T22:59:35.673Z",
+    "modified": "2022-07-05T18:45:37.311Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"name\": \"Mart\"\n}",
+      "raw": "{\n    \"name\": \"Martelo do Batman\"\n}",
       "form": []
     },
     "tests": []
