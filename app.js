@@ -15,6 +15,7 @@ app.post('/products', Products.addProduct);
 
 app.get('/sales', Sales.salesList);
 app.get('/sales/:id', Sales.saleById);
+app.put('/sales/:id', Sales.editSale);
 app.delete('/sales/:id', Sales.removeSale);
 app.post('/sales', Sales.addSale);
 

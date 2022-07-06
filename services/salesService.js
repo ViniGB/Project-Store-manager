@@ -32,6 +32,26 @@ const validateQuantity = (data) => {
   return true;
 };
 
+const productValidation = async (data) => {
+  const productIdExists = checkIfProductId(data);
+  if (!productIdExists) return { error: { code: 400, message: '"productId" is required' } };
+
+  const isProductIdValid = await validateProductId(data);
+  if (!isProductIdValid) return { error: { code: 404, message: 'Product not found' } };
+
+  const quantityExists = checkIfQuantity(data);
+  if (!quantityExists) return { error: { code: 400, message: '"quantity" is required' } };
+
+  const isQuantityValid = validateQuantity(data);
+  if (!isQuantityValid) {
+    return {
+      error: { code: 422, message: '"quantity" must be greater than or equal to 1' },
+    };
+  }
+
+  return true;
+};
+
 const salesService = {
   async addSale() {
     const id = await salesModel.addSale(newDate);
@@ -109,6 +129,26 @@ const salesService = {
     await salesModel.removeSale(id);
     await salesModel.removeSaleProducts(id);
     return true;
+  },
+
+  async editSale(id, dataToUpdate) {
+    const isProductValid = await productValidation(dataToUpdate);
+    if (isProductValid.error) {
+      return {
+        error: { code: isProductValid.error.code, message: isProductValid.error.message },
+      };
+    }
+
+    const sale = await salesModel.saleById(id);
+    if (!sale) {
+      return {
+        error: { code: 404, message: 'Sale not found' },
+      };
+    }
+
+    await Promise.all(dataToUpdate.map((product) => salesModel
+      .editSale(id, product.productId, { quantity: product.quantity })));
+    return { error: false, id };
   },
 };
 

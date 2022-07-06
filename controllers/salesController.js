@@ -35,6 +35,18 @@ const salesController = {
 
     res.status(204).json();
   },
+
+  async editSale(req, res) {
+    const { id } = req.params;
+    const dataToUpdate = req.body;
+    const sale = await salesService.editSale(id, dataToUpdate);
+
+    if (sale.error) {
+      return res.status(sale.error.code).json({ message: sale.error.message });
+    }
+
+    res.status(200).json({ saleId: Number(sale.id), itemsUpdated: dataToUpdate });
+  },
 };
 
 module.exports = salesController;
