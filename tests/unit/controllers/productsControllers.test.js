@@ -143,7 +143,7 @@ describe('Testa o endpoint DELETE dos produtos (controllers)', () => {
     expect(response.status.calledWith(404)).to.be.equal(true);
   });
 
-  it('Verifica o status 200 quando body correto é informado', async () => {
+  it('Verifica o status 204 quando id correto é informado', async () => {
     const response = {};
     const request = {};
 

@@ -43,16 +43,6 @@ describe('Testa o endpoint POST dos produtos (model)', () => {
     name: 'ProdutoX'
   };
 
-  // before(async () => {
-  //   const response = { id: 4 };
-
-  //   sinon.stub(connection, 'query').resolves(response);
-  // });
-
-  // after(async () => {
-  //   connection.query.restore();
-  // });
-
   describe('Verifica retorno após sucesso', () => {
     it('O retorno é um objeto', async () => {
       sinon.stub(connection, 'query').resolves([{ insertId: 4 }])
@@ -60,13 +50,6 @@ describe('Testa o endpoint POST dos produtos (model)', () => {
 
       expect(typeof response).to.equal('number');
     });
-
-    // it('O retorno do objeto possui propriedade id', async () => {
-    //   sinon.stub(connection, 'query').resolves([{ insertId: 4 }])
-    //   const response = await productsModel.addProduct(payloadProduct);
-
-    //   expect(response).to.have.a.property('id');
-    // });
   });
 });
 
